@@ -15,30 +15,32 @@ import org.json.JSONObject;
 public class RESTClient {
 
 	//GET method
-	public void get(String url) throws ClientProtocolException, IOException {
+	public CloseableHttpResponse get(String url) throws ClientProtocolException, IOException {
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpGet httpGet = new HttpGet(url); //http get request
 		CloseableHttpResponse response = httpClient.execute(httpGet); //hit the get URL
+		
+		return response;
 
 		//get status code
-		int statusCode = response.getStatusLine().getStatusCode();
-		System.out.println("The Status Code is ------> "+statusCode);
+		//int statusCode = response.getStatusLine().getStatusCode();
+		//System.out.println("The Status Code is ------> "+statusCode);
 
 		//get reponse as a string
-		String totalResponse = EntityUtils.toString(response.getEntity(), "UTF-8");
-		System.out.println(totalResponse);
+		//String totalResponse = EntityUtils.toString(response.getEntity(), "UTF-8");
+		//System.out.println(totalResponse);
 
 		//To convert the complete message to JSON format
-		JSONObject responseJSON = new JSONObject(totalResponse);
-		System.out.println("The response from GET API is ------>"+responseJSON);
+		//JSONObject responseJSON = new JSONObject(totalResponse);
+		//System.out.println("The response from GET API is ------>"+responseJSON);
 
-		Header[] headerArray = response.getAllHeaders();
+		//Header[] headerArray = response.getAllHeaders();
 
-		HashMap<String, String> allheaders = new HashMap<String, String>();
-		for(Header header : headerArray) {
-			allheaders.put(header.getName(), header.getValue());
-		}
+		//HashMap<String, String> allheaders = new HashMap<String, String>();
+		//for(Header header : headerArray) {
+			//allheaders.put(header.getName(), header.getValue());
+		//}
 		
-		System.out.println("The headers are ------>"+allheaders);
+		//System.out.println("The headers are ------>"+allheaders);
 	}
 }

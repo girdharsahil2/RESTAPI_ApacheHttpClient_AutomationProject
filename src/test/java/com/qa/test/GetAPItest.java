@@ -30,4 +30,8 @@ public class GetAPItest extends TestBase{
 		getRequest.get(mainURL);
 	}
 
+	public void isBarking() {
+		
+	}
+	
 }
