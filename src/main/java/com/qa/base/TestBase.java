@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class TestBase {
+	
+	public int RESPONSE_CODE_STATUS_200 = 200;
 
-	public Properties prop;
+	public static Properties prop;
 	public TestBase() {
 		prop = new Properties();
 		try {
